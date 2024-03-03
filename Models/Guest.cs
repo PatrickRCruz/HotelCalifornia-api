@@ -17,7 +17,6 @@ namespace HotelCalifornia.API.Models
         public string Address { get; set; }
         public string Cpf { get; set; }
         public string CellNumber { get; set; }
-        public DateTime Checkin { get; set; }
-        public DateTime Checkout { get; set; }
+        public string Status { get; set; }= "No Hotel";
     }
 }

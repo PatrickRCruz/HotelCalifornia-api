@@ -20,6 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 
               builder.Services.AddScoped<IApplicationBuilder, ApplicationBuilder>();
               builder.Services.AddScoped<IGuestService,GuestsService>();
+
               
               
              
@@ -59,7 +60,13 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.UseCors();
+app.UseCors(options =>
+{
+    options.WithOrigins("http://localhost:3000");
+    options.AllowAnyMethod();
+    options.AllowAnyHeader();
+
+});
 
 app.MapControllers();
 
